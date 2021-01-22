@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 //Callout é um "popup" do marker
 import MapView, { Marker, Callout, PROVIDER_GOOGLE } from "react-native-maps";
 //para navegar entre as paginas
+// UseFocusEffect para recarregar executar um useEffect sempre que a tela tiver foco
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 
 import api from "../services/api";
@@ -24,6 +25,7 @@ interface Orphanage {
 export default function OrphanagesMap() {
   const navigation = useNavigation();
 
+  // array de orfanatos
   const [orphanages, setOrphanges] = useState<Orphanage[]>([]);
 
   // usamos o useFocusEffect que executa  sempre que a tela receber foco
@@ -39,17 +41,18 @@ export default function OrphanagesMap() {
   }
 
   function handleNavigateToCreateOrphanage() {
+    // envia o usuario para a tela SelectMapPosition
     navigation.navigate("SelectMapPosition");
   }
   return (
     <View style={styles.container}>
       <MapView
-        // Força tanto IOS quanto android usar o mapa do Google
+        // Força o mapa do Google tanto IOS quanto android
         provider={PROVIDER_GOOGLE}
         style={styles.map}
         initialRegion={{
-          latitude: -23.623759,
-          longitude: -46.511798,
+          latitude: -23.623,
+          longitude: -46.512,
           latitudeDelta: 0.008,
           longitudeDelta: 0.008,
         }}
@@ -68,6 +71,7 @@ export default function OrphanagesMap() {
                 longitude: orphanage.longitude,
               }}
             >
+              {/* callout é um tipo de popup, quando clicado vai chamar a funcao passando o ID do orfanato */}
               {/* tooltip diz que vai fazer a estilizacao do ZERO */}
               <Callout
                 tooltip={true}
@@ -82,11 +86,13 @@ export default function OrphanagesMap() {
         })}
       </MapView>
 
+      {/* footer que exibe a quantidade de orfanatos encontradas */}
       <View style={styles.footer}>
         <Text style={styles.footerText}>
           {orphanages.length} Orfanatos encontrados
         </Text>
 
+        {/* botao de adicionar orfanato */}
         <RectButton
           style={styles.createOrphanageButton}
           onPress={handleNavigateToCreateOrphanage}

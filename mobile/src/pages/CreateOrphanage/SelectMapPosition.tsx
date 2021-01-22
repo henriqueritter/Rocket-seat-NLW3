@@ -23,16 +23,18 @@ export default function SelectMapPosition() {
 
   return (
     <View style={styles.container}>
+      {/* Mapa que ao clicar dispara uma funcao */}
       <MapView
         initialRegion={{
-          latitude: -23.6405,
-          longitude: -46.532087,
+          latitude: -23.641,
+          longitude: -46.532,
           latitudeDelta: 0.008,
           longitudeDelta: 0.008,
         }}
         onPress={handleSelectMapPosition}
         style={styles.mapStyle}
       >
+        {/* se a posicao estiver preenchida coloca um marker no mapa */}
         {!!position.latitude && (
           <Marker
             icon={mapMarkerImg}
@@ -43,7 +45,7 @@ export default function SelectMapPosition() {
           />
         )}
       </MapView>
-
+      {/* se posicao preenchida exibe o botao de ir para a proxima activity */}
       {!!position.latitude && (
         <RectButton style={styles.nextButton} onPress={handleNextStep}>
           <Text style={styles.nextButtonText}>Próximo</Text>

@@ -33,11 +33,15 @@ export default function OrphanageData() {
   // para salvar os previews
   const [images, setImages] = useState<string[]>([]);
 
+  // pega os parametro enviados pela tela anterior(latitude e longitude do marker)
   const params = route.params as OrphanageDataRouteParams;
-  const position = params.position;
+
+  // const position = params.position;
 
   async function handleCreateOrphanage() {
+    // faz a desestruturação dos params de position para enviar no post
     const { latitude, longitude } = params.position;
+    // instancia o objeto FormData com o nome de data
     const data = new FormData();
 
     data.append("name", name);
@@ -56,8 +60,9 @@ export default function OrphanageData() {
       } as any); //declarado como as any por conta de um erro do types do react-native
     });
 
+    // envia a requisicao para o backend
     await api.post("/orphanages", data);
-
+    // apos gravar envia o usuario para a home page
     navigation.navigate("OrphanagesMap");
   }
 
@@ -149,6 +154,7 @@ export default function OrphanageData() {
         onChangeText={(text) => setOpeningHours(text)}
       />
 
+      {/* Definimos o botao do tipo switch para salvar o estado de true ou false */}
       <View style={styles.switchContainer}>
         <Text style={styles.label}>Atende final de semana?</Text>
         <Switch
@@ -159,6 +165,7 @@ export default function OrphanageData() {
         />
       </View>
 
+      {/* botao de cadastrar que chama a funcao  */}
       <RectButton style={styles.nextButton} onPress={handleCreateOrphanage}>
         <Text style={styles.nextButtonText}>Cadastrar</Text>
       </RectButton>

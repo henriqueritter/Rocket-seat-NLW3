@@ -11,11 +11,13 @@ import {
 import MapView, { Marker } from "react-native-maps";
 import { Feather, FontAwesome } from "@expo/vector-icons";
 
-import mapMarkerImg from "../images/map-marker.png";
+import api from "../services/api";
+
 import { RectButton, TouchableOpacity } from "react-native-gesture-handler";
 // Para pegar o parametro enviado na ultila requisicao(da tela anterior)
 import { useRoute } from "@react-navigation/native";
-import api from "../services/api";
+
+import mapMarkerImg from "../images/map-marker.png";
 
 interface OrphanageDetailsRouteParams {
   id: number;
@@ -41,14 +43,18 @@ export default function OrphanageDetails() {
   // afirmando via TS que o params tem este formato abaixo
   const params = route.params as OrphanageDetailsRouteParams;
 
+  // armazena o objeto orfanato
   const [orphanage, setOrphanage] = useState<Orphanage>();
 
+  // ao carregar a tela pega os dados do orfanato passando a ID que recebe pelo useRoute
   useEffect(() => {
     api.get(`/orphanages/${params.id}`).then((response) => {
       setOrphanage(response.data);
     });
   }, [params.id]);
 
+  // se nao tiver carregado o orfanato fique carregando
+  // todo SHIMMER EFFECT aqui
   if (!orphanage) {
     return (
       <View style={styles.container}>
@@ -86,6 +92,7 @@ export default function OrphanageDetails() {
         <Text style={styles.description}>{orphanage.about}</Text>
 
         <View style={styles.mapContainer}>
+          {/* Cria um map com as opcoes desabilitadas para o usuario nao mexer na posicao */}
           <MapView
             initialRegion={{
               latitude: orphanage.latitude,
@@ -129,6 +136,7 @@ export default function OrphanageDetails() {
             </Text>
           </View>
 
+          {/* carrega o campo como Sim ou Nao dependendo do valor na API */}
           {orphanage.open_on_weekends ? (
             <View style={[styles.scheduleItem, styles.scheduleItemGreen]}>
               <Feather name="info" size={40} color="#39CC83" />

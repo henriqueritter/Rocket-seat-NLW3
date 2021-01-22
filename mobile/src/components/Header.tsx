@@ -10,6 +10,8 @@ interface HeaderProps {
   showCancel?: boolean;
 }
 
+// Componente criado com duas propriedaes sendo showCancel opcional
+// se showCancel vier em branco ele preenche como true automaticamente
 export default function Header({ showCancel = true, title }: HeaderProps) {
   // if (props.showCancel !== false) {
   //   props.showCancel = true;
@@ -17,6 +19,7 @@ export default function Header({ showCancel = true, title }: HeaderProps) {
 
   const navigation = useNavigation();
 
+  // retorna para a home page
   function handleGoBackToAppHomepage() {
     navigation.navigate("OrphanagesMap");
   }

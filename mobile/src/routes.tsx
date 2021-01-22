@@ -38,6 +38,7 @@ export default function Routes() {
           }}
         />
 
+        {/* headerShown para que as paginas possuam cabeçalho onde esta os botoes de voltar e fechar */}
         <Screen
           name="SelectMapPosition"
           component={SelectMapPosition}
