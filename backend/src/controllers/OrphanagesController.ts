@@ -69,7 +69,7 @@ export default {
       about,
       instructions,
       opening_hours,
-      open_on_weekends,
+      open_on_weekends: open_on_weekends === "true", //para transformar em booleano, se for igual a 'true' transforma em true e etc
       images,
     };
 
