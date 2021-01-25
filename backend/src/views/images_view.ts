@@ -9,13 +9,13 @@ export default {
       return {
         id: 1,
         // url: `http://192.168.11.103:3333/uploads/no-image.jpg`,
-        url: `http://localhost:3333/uploads/no-image.jpg`,
+        url: `${process.env.API_URL}/uploads/no-image.jpg`,
       };
     }
     return {
       id: image.id,
       // url: `http://192.168.11.103:3333/uploads/${image.path}`,
-      url: `http://localhost:3333/uploads/${image.path}`,
+      url: `${process.env.API_URL}/uploads/${image.path}`,
     };
   },
   //renderiza varias imagens
