@@ -1,5 +1,7 @@
 # Rocketseat-NLW03 Happy
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/094a0d38-6222-429a-8da3-ce426ce267dd/deploy-status)](https://happy-henriqueritter.netlify.app/)
+
 
 ## 💻 Projeto
 
@@ -16,5 +18,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Expo](https://expo.io/)
 - [TypeScript](https://www.typescriptlang.org/)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/094a0d38-6222-429a-8da3-ce426ce267dd/deploy-status)](https://happy-henriqueritter.netlify.app/)
+## :memo: Licença
 
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+
+---
+
+Feito com ♥ by Rocketseat :wave: [Participe da nossa comunidade!](https://discordapp.com/invite/gCRAFhc)
