@@ -29,5 +29,5 @@ app.use("/uploads", express.static(path.join(__dirname, "..", "uploads")));
 //trata os erros de express
 app.use(errorHandler);
 
-//porta 3333 do node
+//porta 3333 do node ou porta do heroku
 app.listen(process.env.PORT || 3333);
