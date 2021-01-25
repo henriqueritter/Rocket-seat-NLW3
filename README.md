@@ -1,9 +1,10 @@
 # Rocketseat-NLW03 Happy
 
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/094a0d38-6222-429a-8da3-ce426ce267dd/deploy-status)](https://happy-henriqueritter.netlify.app/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/094a0d38-6222-429a-8da3-ce426ce267dd/deploy-status)](/)
 <p align="center">
-  <img alt="Netlify" src="https://api.netlify.com/api/v1/badges/094a0d38-6222-429a-8da3-ce426ce267dd/deploy-status">
+  <a href="https://happy-henriqueritter.netlify.app">
+  <img alt="Netlify" src="https://api.netlify.com/api/v1/badges/094a0d38-6222-429a-8da3-ce426ce267dd/deploy-status"></a>
   <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=15C3D6&labelColor=000000">
 </p>
 
