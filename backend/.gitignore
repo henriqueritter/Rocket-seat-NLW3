@@ -2,3 +2,4 @@
 /src/database/database.sqlite
 uploads/*
 !uploads/.gitkeep
+!uploads/no-image.jpg
