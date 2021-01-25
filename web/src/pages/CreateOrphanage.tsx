@@ -21,6 +21,7 @@ export default function OrphanagesMap() {
   const [opening_hours, setOpeningHours] = useState("");
   //estado booleano
   const [open_on_weekends, setOpenOnWeekends] = useState(true);
+  const [whatsapp, setWhatsapp] = useState("");
   //estado do tipo de Arquivos e Array para receber multiplas imagens
   const [images, setImages] = useState<File[]>([]);
 
@@ -74,13 +75,13 @@ export default function OrphanagesMap() {
     data.append("instructions", instructions);
     data.append("opening_hours", opening_hours);
     data.append("open_on_weekends", String(open_on_weekends));
+    data.append("whatsapp", whatsapp);
 
     //para cada imagem ele faz mais um append contendo a imagem
     images.forEach((image) => {
       data.append("images", image);
     });
 
-    console.log(data);
     await api.post("/orphanages", data);
 
     alert("Cadastro realizado com sucesso");
@@ -135,6 +136,17 @@ export default function OrphanagesMap() {
             </div>
 
             <div className="input-block">
+              <label htmlFor="wahtsapp">Whatsapp</label>
+              <input
+                id="whatsapp"
+                placeholder="11999999999"
+                maxLength={11}
+                value={whatsapp}
+                onChange={(event) => setWhatsapp(event.target.value)}
+              />
+            </div>
+
+            <div className="input-block">
               <label htmlFor="images">Fotos</label>
 
               <div className="images-container">
@@ -169,9 +181,10 @@ export default function OrphanagesMap() {
 
             <div className="input-block">
               <label htmlFor="opening_hours">Horário de Funcionamento</label>
-              <textarea
+              <input
                 id="opening_hours"
                 value={opening_hours}
+                placeholder="Das 19h até 20h"
                 onChange={(event) => setOpeningHours(event.target.value)}
               />
             </div>

@@ -79,6 +79,10 @@ form.create-orphanage-form .input-block input {
   padding: 0 16px;
 }
 
+form.create-orphanage-form .input-block input::placeholder {
+  opacity: 0.3;
+}
+
 form.create-orphanage-form .input-block textarea {
   min-height: 120px;
   max-height: 240px;

@@ -22,6 +22,7 @@ interface Orphanage {
   instructions: string;
   opening_hours: string;
   open_on_weekends: string;
+  whatsapp?: string;
   images: Array<{
     id: number;
     url: string;
@@ -46,6 +47,7 @@ export default function Orphanage() {
   if (!orphanage) {
     return <p>Carregando...</p>;
   }
+
   return (
     <div id="page-orphanage">
       <Sidebar />
@@ -142,8 +144,15 @@ export default function Orphanage() {
             </div>
 
             <button type="button" className="contact-button">
-              <FaWhatsapp size={20} color="#FFF" />
-              Entrar em contato
+              <a
+                className="contact-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`https://web.whatsapp.com/send?text=Olá ${orphanage.name} estou entrando em contato para saber mais detalhes a respeito da visitação ao orfanato.&phone=55${orphanage.whatsapp}`}
+              >
+                <FaWhatsapp size={20} color="#FFF" />
+                Entrar em contato
+              </a>
             </button>
           </div>
         </div>
@@ -151,3 +160,5 @@ export default function Orphanage() {
     </div>
   );
 }
+
+// https://web.whatsapp.com/send?phone=11974727191
