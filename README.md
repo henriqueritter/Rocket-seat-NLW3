@@ -1,5 +1,11 @@
 # Rocketseat-NLW03 Happy
 
+
+## 💻 Projeto
+
+O Happy é uma aplicação desenvolvida durante a Next Level Week, é uma aplicação que conecta pessoas à casas de acolhimento institucional.
+
+
 ## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
