@@ -46,6 +46,7 @@ export default {
       instructions,
       opening_hours,
       open_on_weekends,
+      whatsapp,
     } = request.body;
 
     //recupera dados das imagens enviadas, forçamos o tipo da variavel a ser do tipo
@@ -70,6 +71,7 @@ export default {
       instructions,
       opening_hours,
       open_on_weekends: open_on_weekends === "true", //para transformar em booleano, se for igual a 'true' transforma em true e etc
+      whatsapp,
       images,
     };
 
@@ -83,6 +85,7 @@ export default {
       instructions: Yup.string().required(),
       opening_hours: Yup.string().required(),
       open_on_weekends: Yup.string().required(),
+      whatsapp: Yup.string().max(11),
       images: Yup.array(
         Yup.object().shape({
           path: Yup.string().required(),
