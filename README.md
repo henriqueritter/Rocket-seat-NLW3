@@ -1,7 +1,5 @@
 # Rocketseat-NLW03 Happy
 
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/094a0d38-6222-429a-8da3-ce426ce267dd/deploy-status)](/)
 <p align="center">
   <a href="https://happy-henriqueritter.netlify.app">
   <img alt="Netlify" src="https://api.netlify.com/api/v1/badges/094a0d38-6222-429a-8da3-ce426ce267dd/deploy-status"></a>
