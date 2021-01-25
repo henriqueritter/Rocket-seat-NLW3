@@ -4,9 +4,18 @@ import Image from "../models/Image";
 export default {
   //renderiza a imagem passada no parametro para exibir os campos ababixo
   render(image: Image) {
+    // se nao houver imagem retorne a imagem padrao
+    if (!image) {
+      return {
+        id: 1,
+        // url: `http://192.168.11.103:3333/uploads/no-image.jpg`,
+        url: `http://localhost:3333/uploads/no-image.jpg`,
+      };
+    }
     return {
       id: image.id,
-      url: `http://192.168.11.103:3333/uploads/${image.path}`,
+      // url: `http://192.168.11.103:3333/uploads/${image.path}`,
+      url: `http://localhost:3333/uploads/${image.path}`,
     };
   },
   //renderiza varias imagens
